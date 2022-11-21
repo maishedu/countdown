@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+<div class="container">
+    <img src="starwarslogo.png" class="logo">
+    <div class="content">
+        <h3> Website is  Under Maintenance</h3>
+        <h1>We're <span>Launching</span> Soon</h1>
+
+        <div class="countdown-timer">
+            <div>
+                <p id="days">00</p>
+                <span>Days</span>
+            </div>
+            <div>
+                <p id="hours">00</p>
+                <span>Hours</span>
+            </div>
+            <div>
+                <p id="minutes">00</p>
+                <span>Minutes</span>
+            </div>
+            <div>
+                <p id="seconds">00</p>
+                <span>Seconds</span>
+            </div>
+        </div>
+    </div>
+    <img src="rocket.png" class="rocket">
+
+</div>
+<script type="text/javascript">
+    const endtime = new Date("November 18,2022 22:00:00").getTime();
+    const now = new Date().getTime();
+    const difference = endtime-now;
+    const x = setInterval(()=>{
+        const now = new Date().getTime();
+        const difference = endtime-now;
+        const days= Math.floor(difference/(1000*60*60*24));
+        const hours =  Math.floor(difference/(1000*60*60));
+        const minutes = Math.floor((difference%(1000*60*60))/(60000));
+        const seconds = Math.floor((difference%(1000*60))/(1000));
+
+        document.getElementById('days').innerHTML=days;
+        document.getElementById('hours').innerHTML=hours;
+        document.getElementById('minutes').innerHTML=minutes;
+        document.getElementById('seconds').innerHTML=seconds;
+
+        if(difference<=0){
+            clearInterval(x);
+            document.getElementById('days').innerHTML="00";
+            document.getElementById('hours').innerHTML="00";
+            document.getElementById('minutes').innerHTML="00";
+            document.getElementById('seconds').innerHTML="00";
+
+        }
+
+    },1000)
+
+
+
+</script>
+
+</body>
+</html>
